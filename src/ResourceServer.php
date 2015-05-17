@@ -191,9 +191,9 @@ class ResourceServer extends AbstractServer
             throw new Exception\AccessDeniedException;
         }
 
-        $sessions = $this->accessToken->getSession();
+        $user = $this->getOwnerId();
 
-        return $sessions;
+        return ['user_id' => $user];
     }
 
     /**
